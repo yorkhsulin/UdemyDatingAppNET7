@@ -7,16 +7,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { MemberListComponent } from './member/member-list/member-list.component';
+import { MemberDetailComponent } from './member/member-detail/member-detail.component';
+import { ListsComponent } from './lists/lists.component';
+import { MessagesComponent } from './messages/messages.component';
+import { SharedModule } from './_modules/shared.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    MemberListComponent,
+    MemberDetailComponent,
+    ListsComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +34,8 @@ import { RegisterComponent } from './register/register.component';
     BrowserAnimationsModule,
     FormsModule,
     TooltipModule.forRoot(),
-    BsDropdownModule.forRoot()
+    SharedModule // 第三套件統一管理
+
   ],
   providers: [],
   bootstrap: [AppComponent]
