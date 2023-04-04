@@ -1,16 +1,5 @@
-
-
-
-
-
-using System.Text;
-using API.Data;
 using API.Extensiona;
-using API.Interface;
-using API.Service;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
+using API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +12,9 @@ builder.Services.AddIdentityService(builder.Configuration);
 
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddle>();
+
 app.UseCors(builder=>builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
 
 app.UseAuthentication(); //check valid token
